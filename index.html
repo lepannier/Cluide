@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+        }
+        
+        .construction-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .bento-card {
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-yellow {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .construction-visual {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .lego-block {
+            position: static;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .floating-1 { animation: float 3s ease-in-out infinite; }
+        .floating-2 { animation: float 3s ease-in-out infinite 1s; }
+        .floating-3 { animation: float 3s ease-in-out infinite 2s; }
+
+        .email-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            padding: 15px 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 300px;
+            outline: none;
+        }
+
+        .email-input:focus {
+            box-shadow: 4px 4px 0px var(--rose);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar block-border" style="position: static; z-index: 1;">
+        <div class="nav-header" style="justify-content: center; width: 100%;">
+            <div class="logo">
+                <span class="dot rose"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <h1 style="display: flex; align-items: center; gap: 10px;">LE PANNIER STUDIOS <span class="tag badge-yellow block-border" style="font-size: 0.8rem; padding: 5px 10px; margin: 0; display: inline-block;">NEW PROJECT</span></h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="construction-container">
+        <div class="bento-card bg-white block-border">
+            <div class="tag badge-yellow block-border">Under Construction</div>
+            <h1 class="bold-title text-black" style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">We're building something bold.</h1>
+            <p class="subtitle" style="font-size: 1.2rem;">Our newest project is currently being engineered. We are assembling the pieces and will be launching soon.</p>
+            
+            <div class="construction-visual">
+                <div class="lego-block bg-yellow block-border floating-1">Planning</div>
+                <div class="lego-block bg-rose block-border floating-2 text-white">Building</div>
+                <div class="lego-block bg-green block-border floating-3">Testing</div>
+            </div>
+
+            <div class="email-form" style="flex-direction: column; align-items: center; gap: 15px;">
+                <a href="mailto:contact@lepannier.com" class="btn btn-black" style="width: 100%; max-width: 300px;">Contact Us</a>
+                <a href="https://www.lepannier.com" class="btn bg-rose text-white block-border" style="width: 100%; max-width: 300px; text-decoration: none;">Visit Le Pannier Studios</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
