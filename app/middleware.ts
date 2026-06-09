@@ -3,9 +3,12 @@ import { NextRequest, NextResponse } from 'next/server'
 export function middleware(request: NextRequest) {
   const authHeader = request.headers.get('authorization')
 
-  if (authHeader) {
-    const encoded = authHeader.split(' ')[1]
-    const [user, pass] = Buffer.from(encoded, 'base64').toString().split(':')
+  if (authHeader?.startsWith('Basic ')) {
+    const encoded = authHeader.slice(6)
+    const decoded = atob(encoded)
+    const sep = decoded.indexOf(':')
+    const user = decoded.slice(0, sep)
+    const pass = decoded.slice(sep + 1)
 
     if (
       user === process.env.BASIC_AUTH_USER &&
