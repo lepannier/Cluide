@@ -1,0 +1,6 @@
+{
+  "extends": "@strapi/strapi/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}

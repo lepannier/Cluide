@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "health_resources",
+  "info": {
+    "singularName": "health-resource",
+    "pluralName": "health-resources",
+    "displayName": "Health Resource"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "type": {
+      "type": "enumeration",
+      "enum": ["app", "book", "self-help-group", "emergency", "community"],
+      "required": true
+    },
+    "description": { "type": "text", "required": true },
+    "url": { "type": "string" },
+    "guideStep": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guide-step.guide-step",
+      "inversedBy": "healthResources"
+    }
+  }
+}

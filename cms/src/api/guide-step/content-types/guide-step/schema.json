@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guide_steps",
+  "info": {
+    "singularName": "guide-step",
+    "pluralName": "guide-steps",
+    "displayName": "Guide Step"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "description": { "type": "text", "required": true },
+    "body": { "type": "blocks" },
+    "order": { "type": "integer", "required": true, "min": 1 },
+    "icon": { "type": "string" },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "guideStep"
+    },
+    "healthResources": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::health-resource.health-resource",
+      "mappedBy": "guideStep"
+    }
+  }
+}

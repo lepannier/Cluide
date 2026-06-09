@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "summary": { "type": "text", "required": true },
+    "body": { "type": "blocks" },
+    "category": {
+      "type": "enumeration",
+      "enum": ["stigma", "expectation", "emotional-support", "practical"],
+      "required": true
+    },
+    "guideStep": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guide-step.guide-step",
+      "inversedBy": "articles"
+    }
+  }
+}
