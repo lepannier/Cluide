@@ -1,4 +1,5 @@
-export default {
+'use strict'
+module.exports = {
   register() {},
   bootstrap() {},
 }

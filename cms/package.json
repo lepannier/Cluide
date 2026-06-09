@@ -5,7 +5,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "mkdir -p public/uploads && strapi start",
-    "build": "strapi build && cp -r config dist/ && find src -name '*.json' | xargs -I{} sh -c 'mkdir -p dist/$(dirname {}) && cp {} dist/{}'",
+    "build": "strapi build",
     "strapi": "strapi"
   },
   "dependencies": {
@@ -13,7 +13,6 @@
     "@strapi/plugin-users-permissions": "5.47.1",
     "better-sqlite3": "^9.4.3",
     "pg": "^8.12.0",
-    "typescript": "^5.3.3",
     "esbuild": "^0.28.0"
   },
   "devDependencies": {
