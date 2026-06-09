@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Cluide",
+    "slug": "cluide",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "cluide",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#F7F7F7"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "de.cluide.app"
+    },
+    "android": {
+      "package": "de.cluide.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F7F7"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        { "backgroundColor": "#F7F7F7" }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
