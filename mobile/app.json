@@ -26,8 +26,11 @@
       "expo-font",
       [
         "expo-splash-screen",
-        { "backgroundColor": "#F7F7F7" }
-      ]
+        {
+          "backgroundColor": "#F7F7F7"
+        }
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
