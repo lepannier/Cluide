@@ -5,7 +5,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "mkdir -p public/uploads && strapi start",
-    "build": "strapi build && cp -r config dist/",
+    "build": "strapi build && cp -r config dist/ && find src -name '*.json' | xargs -I{} sh -c 'mkdir -p dist/$(dirname {}) && cp {} dist/{}'",
     "strapi": "strapi"
   },
   "dependencies": {
