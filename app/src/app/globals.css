@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core palette */
+  --bg: #F7F7F7;
+  --white: #FFFFFF;
+  --black: #0D0D0D;
+  --muted: #6B6B6B;
+  --border: #E2E2E2;
+
+  /* Ambient gradient blobs — from pitch deck */
+  --blob-green: rgba(168, 220, 185, 0.6);
+  --blob-purple: rgba(176, 150, 215, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--black);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100dvh;
+}
+
+/* Thin corner bracket marks — recurring pitch deck motif */
+.corner-mark::before,
+.corner-mark::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--black);
+  border-style: solid;
+  opacity: 0.3;
+}
+
+.corner-mark::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.corner-mark::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
