@@ -1,4 +1,4 @@
-export default ({ env }: { env: (key: string, fallback?: any) => any }) => {
+module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite')
 
   if (client === 'postgres') {
@@ -7,7 +7,7 @@ export default ({ env }: { env: (key: string, fallback?: any) => any }) => {
         client: 'postgres',
         connection: {
           connectionString: env('DATABASE_URL'),
-          ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: false } : false,
+          ssl: { rejectUnauthorized: false },
           schema: env('DATABASE_SCHEMA', 'public'),
         },
         pool: { min: 2, max: 10 },
