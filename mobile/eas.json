@@ -20,9 +20,7 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "pannierkai@gmail.com",
-        "ascAppId": "",
-        "appleTeamId": ""
+        "appleId": "pannierkai@gmail.com"
       }
     }
   }
