@@ -7,12 +7,18 @@
     "scheme": "cluide",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "icon": "./assets/icon.png",
     "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
       "backgroundColor": "#F7F7F7"
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "de.cluide.app"
+      "bundleIdentifier": "de.cluide.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "de.cluide.app",
@@ -34,6 +40,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ef667479-f498-444d-8f15-262d4989a1a5"
+      }
+    },
+    "owner": "le-pannier"
   }
 }
