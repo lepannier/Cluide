@@ -40,7 +40,7 @@ export default function GuideStepDetail() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!slug) return
+    if (!slug) { setLoading(false); return }
     Promise.all([
       cms.guideStep(slug),
       cms.articlesByStep(slug),

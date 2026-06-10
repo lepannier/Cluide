@@ -1,7 +1,8 @@
 const BASE = process.env.EXPO_PUBLIC_STRAPI_URL ?? ''
 
 async function get<T>(path: string): Promise<T> {
-  const res = await fetch(`${BASE}/api${path}?populate=*`)
+  const sep = path.includes('?') ? '&' : '?'
+  const res = await fetch(`${BASE}/api${path}${sep}populate=*`)
   if (!res.ok) throw new Error(`CMS ${res.status}: ${path}`)
   const json = await res.json()
   return json.data

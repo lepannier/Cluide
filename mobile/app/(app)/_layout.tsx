@@ -55,6 +55,7 @@ export default function AppLayout() {
           tabBarIcon: ({ color, size }) => <TabIcon name="person-outline" color={color} size={size} />,
         }}
       />
+      <Tabs.Screen name="guide/[slug]" options={{ href: null }} />
     </Tabs>
   )
 }

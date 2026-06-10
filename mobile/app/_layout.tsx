@@ -47,7 +47,5 @@ export default function RootLayout() {
     }
   }, [session, initialized, fontsLoaded, segments])
 
-  if (!initialized || !fontsLoaded) return null
-
   return <Slot />
 }
