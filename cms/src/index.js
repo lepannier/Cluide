@@ -194,41 +194,45 @@ module.exports = {
   register() {},
 
   async bootstrap({ strapi }) {
-    const existing = await strapi.documents('api::guide-step.guide-step').findMany({})
-    if (existing.length > 0) return
-
-    strapi.log.info('[seed] Seeding guide steps...')
-
-    for (const stepData of GUIDE_STEPS) {
-      const { articles, resources, ...stepFields } = stepData
-
-      const step = await strapi.documents('api::guide-step.guide-step').create({
-        data: { ...stepFields, publishedAt: new Date().toISOString() },
+    try {
+      const existing = await strapi.documents('api::guide-step.guide-step').findMany({
+        status: 'published',
       })
-
-      for (const articleData of articles) {
-        await strapi.documents('api::article.article').create({
-          data: {
-            ...articleData,
-            guideStep: step.documentId,
-            publishedAt: new Date().toISOString(),
-          },
-        })
+      if (existing.length > 0) {
+        strapi.log.info('[seed] Already seeded, skipping.')
+        return
       }
 
-      for (const resourceData of resources) {
-        await strapi.documents('api::health-resource.health-resource').create({
-          data: {
-            ...resourceData,
-            guideStep: step.documentId,
-            publishedAt: new Date().toISOString(),
-          },
+      strapi.log.info('[seed] Seeding guide steps...')
+
+      for (const stepData of GUIDE_STEPS) {
+        const { articles, resources, ...stepFields } = stepData
+
+        const step = await strapi.documents('api::guide-step.guide-step').create({
+          data: stepFields,
+          status: 'published',
         })
+
+        for (const articleData of articles) {
+          await strapi.documents('api::article.article').create({
+            data: { ...articleData, guideStep: step.documentId },
+            status: 'published',
+          })
+        }
+
+        for (const resourceData of resources) {
+          await strapi.documents('api::health-resource.health-resource').create({
+            data: { ...resourceData, guideStep: step.documentId },
+            status: 'published',
+          })
+        }
+
+        strapi.log.info(`[seed] Created step: ${stepFields.title}`)
       }
 
-      strapi.log.info(`[seed] Created step: ${stepFields.title}`)
+      strapi.log.info('[seed] Done.')
+    } catch (err) {
+      strapi.log.error('[seed] Failed:', err)
     }
-
-    strapi.log.info('[seed] Done.')
   },
 }
